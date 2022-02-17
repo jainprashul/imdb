@@ -3,6 +3,7 @@ const { Schema, model} = require('mongoose')
 const Movie = new Schema({  
     id: {
         type: Number,
+        unique: true, 
     },
     name : {
         type: String,
@@ -15,6 +16,9 @@ const Movie = new Schema({
     releaseDate : {
         type: Date,
         default : new Date(),
+    },
+    description : {
+        type: String,
     },
     votes: {
         type: Number,
