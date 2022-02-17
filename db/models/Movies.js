@@ -1,20 +1,28 @@
-const Schema = require('mongoose').Schema;
-
-// {
-//     id: 1,
-//     name: 'The Shawshank Redemption',
-//     genre: 'Drama',
-//     releaseDate: '14 October 1994',
-//     votes: 0
+const { Schema, model} = require('mongoose')
 
 const Movie = new Schema({  
-    id: Number,
-    name: String,
-    genre: String,
-    releaseDate: Date,
-    votes: Number
-})
+    id: {
+        type: Number,
+    },
+    name : {
+        type: String,
+        required: true
+    },
+    genre : {
+        type: String,
+        required: true
+    },
+    releaseDate : {
+        type: Date,
+        default : new Date(),
+    },
+    votes: {
+        type: Number,
+        default: 0
+    }
+});
 
+module.exports = model('Movie', Movie);
 
 
 
