@@ -1,5 +1,6 @@
 const express = require('express');
 // const db = require('./db');
+const movieRouter = require('./movieDB');
 
 const app = express();
 
@@ -9,9 +10,7 @@ app.get('/', (req, res) => {
     res.send('<h1>Hello ' + name + '</h1>');
 });
 
-app.get('/',(req,res) => { 
-
-})
+app.use('/movies', movieRouter);
 
 
 app.get('/users', (req, res) => {
