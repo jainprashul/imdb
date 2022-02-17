@@ -1,0 +1,99 @@
+[
+    {
+        "id" : 1,
+        "name": "Anabelle",
+        "genre": "Horror",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 5
+    },
+    {
+        "id" : 2,
+        "name": "Aquaman",
+        "genre": "Action",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 8
+    },
+    {
+        "id" : 3,
+        "name": "Avatar",
+        "genre": "Action",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 15
+    },
+    {
+        "id" : 4,
+        "name": "Avengers",
+        "genre": "Action",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 20
+    },
+    {
+        "id" : 5,
+        "name": "Black Panther",
+        "genre": "Action",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 2
+    },
+    {
+        "id" : 6,
+        "name": "Captain Marvel",
+        "genre": "Action",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 52
+    },
+    {
+        "id" : 7,
+        "name": "Deadpool",
+        "genre": "Action",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 17
+    },
+    {
+        "id" : 8,
+        "name": "Dragon Ball",
+        "genre": "Action",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 87
+    },
+    {
+        "id" : 9,
+        "name": "Frozen",
+        "genre": "Romantic",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 2
+    },
+    {
+        "id" : 10,
+        "name": "Guardians of the Galaxy",
+        "genre": "Action",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 23
+    },
+    {
+        "id" : 11,
+        "name": "Harry Potter",
+        "genre": "Action",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 1
+    },
+    {
+        "id" : 12,
+        "name": "I am legend",
+        "genre": "Action",
+        "releaseDate": "2019-10-02",
+        "description": "A young",
+        "votes": 7
+    }
+   
+]

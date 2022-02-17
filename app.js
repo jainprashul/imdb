@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
     res.send('<h1>Hello ' + name + '</h1>');
 });
 
-app.use('/movies', movieRouter);
+app.use('/api/movies', movieRouter);
 
 app.listen(3000, () => {
     console.log('Server started on port 3000');
