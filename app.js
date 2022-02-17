@@ -1,6 +1,6 @@
 const express = require('express');
 
-require('./mongoose');
+require('./db/mongoose');
 // const db = require('./db');
 const movieRouter = require('./movieDB');
 
@@ -14,16 +14,6 @@ app.get('/', (req, res) => {
 
 app.use('/movies', movieRouter);
 
-
-app.get('/users', (req, res) => {
-    res.json([
-        {
-            id: 1,
-            firstName: 'John',
-            lastName: 'Doe',
-        }
-    ]);
-});
 
 
 app.listen(3000, () => {

@@ -1,3 +1,6 @@
+/**
+ * MovieDB router
+ */
 const router = require('express').Router();
 
 // Fetch a list of movies (id, name, genre)
