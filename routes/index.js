@@ -32,7 +32,7 @@ router.get('/movies', (req, res) => {
 });
 
 router.get('/search', (req, res) => {
-    let search = req.query.q.trim();
+    let search = req.query.q?.trim();
     let sortBy = req.query.sortBy || 'releaseDate';
     let genreQ = req.query.genre || '';
 

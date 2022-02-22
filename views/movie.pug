@@ -6,17 +6,17 @@ html
             include ./css/index.css
             include ./css/movie.css
     body
+        include ./partials/nav.pug
         
         h1#title
             = movie.name
 
-        include ./partials/nav.pug
 
         .movie-details
             h1#title2 Movie Details -
                 span 
                     = movie.name
-            li.card
+            li.card#details
                 div
                     img(src=movie.imgUrl, alt=movie.name, srcset="")
                     div#description

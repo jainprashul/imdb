@@ -106,6 +106,13 @@ ul {
     text-decoration: none;
 }
 
+.card ,#details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+} 
+
 
 .movies {
     display: flex;
