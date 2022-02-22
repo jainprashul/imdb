@@ -14,6 +14,7 @@ app.set('view engine', 'pug');
 
 // parse application/json
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/api/movies', movieRouter);
 

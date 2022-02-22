@@ -1,7 +1,8 @@
 html 
     head 
         title
-            | Welcome to MOVIEDB 
+            = movie.name 
+            |  - MovieDB 
         style 
             include ./css/index.css
             include ./css/movie.css
@@ -13,20 +14,28 @@ html
 
 
         .movie-details
-            h1#title2 Movie Details -
-                span 
-                    = movie.name
+            
             li.card#details
                 div
                     img(src=movie.imgUrl, alt=movie.name, srcset="")
                     div#description
-                div
+                div.d
                     p#description 
                         = movie.description
                     p#genre
                             = movie.genre
                     p#date
                              = new Date(movie.releaseDate).getFullYear()
+                    p#rating
+                        = movie.votes
+                    .btns
+                        button.btn(type="button", onclick=`addVote('${movie.id}')`)
+                            | Up Vote
+                        button.btn(type="button", onclick=`removeVote('${movie.id}')`)
+                            | Down Vote
+            
+
+                
                 
         .goBack
             a(href='/')

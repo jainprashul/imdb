@@ -41,6 +41,13 @@ body {
     padding: 10px;
 }
 
+img {
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 150px;
+    padding: .5rem;
+}
+
 .nav a {
     color: #fff;
     margin: 0 2rem;
@@ -106,12 +113,6 @@ ul {
     text-decoration: none;
 }
 
-.card ,#details {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 10px;
-} 
 
 
 .movies {

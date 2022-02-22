@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Add Movie 
+        style 
+            include ./css/index.css
+            include ./css/add.css
+    body
+        
+        include ./partials/nav.pug
+        h1#title Add to MovieDB
+
+        .movie-details
+            h1#title2 Add a Movie
+            form#addDetails(method="POST", action="/movies")
+                .form-input
+                    label(for=" name")
+                        | Name
+                    input#name(type="text", name="name", placeholder="Movie Name")
+                .form-input
+                    label(for="genre") 
+                        | Genre 
+                    input#genre(type="text", name="genre", placeholder="Genre")
+                .form-input
+                    label(for="releaseDate") 
+                        | Release Date
+                    input#date(type="date", name="releaseDate", placeholder="Release Date")
+                .form-input
+                    label(for="imgUrl") 
+                        | Image URL
+                    input#imgUrl(type="text", name="imgUrl", placeholder="Image URL")
+                .form-input
+                    label(for=" description")
+                        | Description
+                    input#description(type="text", name="description", placeholder="Description")
+                
+                input#submit(type="submit", value="Add Movie")
+
+                        
+        script 
+            include ./js/index.js
+
+

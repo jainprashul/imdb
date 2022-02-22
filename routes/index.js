@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { default: axios } = require('axios');
-const Marks = require('../db/models/Marks');
+
 
 
 router.get('/', (req, res) => {
@@ -56,5 +56,18 @@ router.get('/movies/:id', (req, res) => {
     });
 });
 
+router.get('/add', (req, res) => {
+    res.render('add');
+});
 
-module.exports = router;
+router.post('/movies', (req, res) => {
+    axios.post(`http://${req.headers.host}/api/movies/add`, req.body).then(response => {
+        console.log(response.data);
+        res.redirect(`/movies/${response.data.id}`);
+    }).catch(err => {
+        res.status(500).send(err);
+    });
+});
+
+module.exports = router;  
+
