@@ -56,36 +56,5 @@ router.get('/movies/:id', (req, res) => {
     });
 });
 
-// router.get('/marks', (req, res) => {
-//     Marks.distinct('marks').then(async marks => {
-//        const a =  marks.map(mark => Marks.find({ marks: mark }).countDocuments().then(count => {
-//                 return {
-//                     mark,
-//                     count
-//                 };
-//             }));
-
-//         res.json(await Promise.all(a));
-//     }).catch(err => {
-//         res.status(500).send(err);
-//     });
-
-// });
-
-// router.post('/marks', (req, res) => {
-//     let list = req.body;
-//     let marks = [];
-//     list.forEach(movie => {
-//         marks.push({
-//            ...movie,
-//         });
-//     });
-//     Marks.insertMany(req.body).then(() => {
-//         res.status(201).send(req.body);
-//     }).catch(err => {
-//         res.status(400).send(err);
-//     });
-
-// });
 
 module.exports = router;
