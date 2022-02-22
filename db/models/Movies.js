@@ -23,7 +23,11 @@ const Movie = new Schema({
     votes: {
         type: Number,
         default: 0
-    }
+    },
+    imgUrl: {
+        type: String,
+        default: 'https://via.placeholder.com/150'
+    },
 });
 
 module.exports = model('Movie', Movie);

@@ -3,3 +3,14 @@
 
 test
 test1234
+
+
+// challeg
+
+userDB.js
+
+// Fetch a list of user (id, name, age, phone, email , dob) -- 
+// Fetch details of specific user by id (id, name, details, genre, release date, reviews) --done
+// Search user (Should filter by age, sort by dob) --done
+// incremenrt the age of user --done
+// Fetch top 10 user based on age  -- done

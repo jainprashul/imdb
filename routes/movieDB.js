@@ -2,8 +2,8 @@
  * MovieDB router
  */
 const router = require('express').Router();
-const Movies = require('./db/models/Movies');
-const Movie = require('./db/models/Movies');
+const Movies = require('../db/models/Movies');
+const Movie = require('../db/models/Movies');
 
 // Fetch a list of movies (id, name, genre) -- done
 // Fetch details of specific movie by id (id, name, details, genre, release date, reviews) --done
@@ -60,11 +60,24 @@ router.post('/bulkAdd', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    let maxLimit = req.query.limit || 10;
-    let skip = req.query.skip || 0;
+    let maxLimit = Number(req.query.limit) || 10;
+    let page = Number(req.query.page) || 1;
+    let skip = (page - 1) * maxLimit;
+    const query = Movies.find({});
+    const count = Movies.countDocuments().exec();
+    
     // send movie list
-    Movie.find({}).skip(skip).limit(maxLimit).then((result) => {
-        res.send(result);
+    query.sort({
+        id : 1
+    }).skip(skip).limit(maxLimit).then(async (result) => {
+        res.json({
+            total: await count,
+            limit: maxLimit,
+            totalPages: Math.ceil(await count / maxLimit),
+            page: page,
+            pageSize : result.length,
+            result,
+        });
     }).catch((e) => {
         res.status(400).send(e);
     });
@@ -74,7 +87,7 @@ router.get('/', (req, res) => {
 router.get('/search', (req, res) => {
 
     let sortBy = req.query.sortBy || 'releaseDate';
-    let genreQ = req.query.genre
+    let genreQ = req.query.genre || '';
     let query = req.query.q;
 
     console.log(req.query);
@@ -92,9 +105,13 @@ router.get('/search', (req, res) => {
     }).sort({
         [sortBy]: -1
     })
-    .then((movies) => {
+    .then(async (movies) => {
         // throw new Error('Error');
-        res.send(movies);
+        res.json({
+            query,
+            total: movies.length,
+            result: movies
+        });
     }).catch((e) => {
         res.status(500).send({
             error: "Please send a valid query"
