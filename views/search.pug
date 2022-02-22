@@ -14,6 +14,12 @@ html(lang="en")
         h1#title
             = query 
             |  - Search Results
+
+        if (query===null)
+            .null 
+                p#desc Please enter a search query.
+                a(href="/")
+                    | Go Back 
  
 
         .movie-list

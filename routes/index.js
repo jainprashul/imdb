@@ -36,6 +36,14 @@ router.get('/search', (req, res) => {
     let sortBy = req.query.sortBy || 'releaseDate';
     let genreQ = req.query.genre || '';
 
+    if(!search) {
+        return res.render('search', {
+            movies: [],
+            query: null
+        });
+    }
+
+
     axios.get(`http://${req.headers.host}/api/movies/search?q=${search}&sortBy=${sortBy}&genre=${genreQ}`).then(response => {
         res.render('search', {
             ...response.data,

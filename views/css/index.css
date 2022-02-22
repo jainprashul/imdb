@@ -135,3 +135,12 @@ ul {
     margin: 0 2rem;
     text-decoration: none;
 }
+
+.null {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0;
+}
