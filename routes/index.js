@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
             movies: response.data
         });
     }).catch(err => {
-        res.status(500).send(err);
+        res.status(500).render('404');
     });
 });
 
@@ -27,7 +27,7 @@ router.get('/movies', (req, res) => {
             movies: response.data.result
         });
     }).catch(err => {
-        res.status(500).send(err);
+        res.status(500).render('404');
     });
 });
 
@@ -42,7 +42,7 @@ router.get('/search', (req, res) => {
             movies: response.data.result
         });
     }).catch(err => {
-        res.status(500).send(err);
+        res.status(500).render('404');
     });
 });
 
@@ -52,7 +52,7 @@ router.get('/movies/:id', (req, res) => {
             movie: response.data
         });
     }).catch(err => {
-        res.status(500).send(err);
+        res.status(500).render('404');
     });
 });
 
@@ -65,7 +65,7 @@ router.post('/movies', (req, res) => {
         console.log(response.data);
         res.redirect(`/movies/${response.data.id}`);
     }).catch(err => {
-        res.status(500).send(err);
+        res.status(500).render('404');
     });
 });
 
