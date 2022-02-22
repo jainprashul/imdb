@@ -19,9 +19,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/api/movies', movieRouter);
 
 app.use('/', router); 
-app.listen(3000, () => {
-    console.log('Server started on port 3000');
+app.listen(port, () => {
+    console.log('Server started on port ', port);
 });
+
+module.exports = app;
 
 
 

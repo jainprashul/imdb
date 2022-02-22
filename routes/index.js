@@ -49,7 +49,7 @@ router.get('/search', (req, res) => {
 router.get('/movies/:id', (req, res) => {
     axios.get(`http://${req.headers.host}/api/movies/${req.params.id}`).then(response => {
         res.render('movie', {
-            movie: response.data[0]
+            movie: response.data
         });
     }).catch(err => {
         res.status(500).send(err);

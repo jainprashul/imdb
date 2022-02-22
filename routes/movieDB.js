@@ -53,36 +53,11 @@ router.post('/bulkAdd', (req, res) => {
     });
 
     Movie.insertMany(moviesToAdd).then(() => {
-        res.status(201).send(movies);
+        res.status(201).send(moviesToAdd);
     }).catch(err => {
         res.status(400).send(err);
     });
 });
-
-router.get('/', (req, res) => {
-    let maxLimit = Number(req.query.limit) || 10;
-    let page = Number(req.query.page) || 1;
-    let skip = (page - 1) * maxLimit;
-    const query = Movies.find({});
-    const count = Movies.countDocuments().exec();
-    
-    // send movie list
-    query.sort({
-        id : 1
-    }).skip(skip).limit(maxLimit).then(async (result) => {
-        res.json({
-            total: await count,
-            limit: maxLimit,
-            totalPages: Math.ceil(await count / maxLimit),
-            page: page,
-            pageSize : result.length,
-            result,
-        });
-    }).catch((e) => {
-        res.status(400).send(e);
-    });
-});
-
 
 router.get('/search', (req, res) => {
 
@@ -119,9 +94,33 @@ router.get('/search', (req, res) => {
     });
 });
 
+router.get('/', (req, res) => {
+    let maxLimit = Number(req.query.limit) || 10;
+    let page = Number(req.query.page) || 1;
+    let skip = (page - 1) * maxLimit;
+    const query = Movies.find({});
+    const count = Movies.countDocuments().exec();
+    
+    // send movie list
+    query.sort({
+        id : 1
+    }).skip(skip).limit(maxLimit).then(async (result) => {
+        res.status(200).json({
+            total: await count,
+            limit: maxLimit,
+            totalPages: Math.ceil(await count / maxLimit),
+            page: page,
+            pageSize : result.length,
+            result,
+        });
+    }).catch((e) => {
+        res.status(400).send(e);
+    });
+});
+
 router.get('/top', (req, res) => {
-    // send top 10 movies
-    let limitMax = req.query.limit || 10;
+    // send top 10 movies by votes
+    let limitMax = Number(req.query.limit) || 10;
     Movie.find({}).sort({
         votes: -1
     }).limit(limitMax).then((movies) => {
@@ -131,7 +130,6 @@ router.get('/top', (req, res) => {
     });
 });
 
-
 router.get('/:id', (req, res) => {
     // send movie details
     const id = req.params.id;
@@ -140,10 +138,12 @@ router.get('/:id', (req, res) => {
         return res.status(400).send('Invalid ID');
     }
 
-    Movie.find({
+    Movie.findOne({
         id: id
     }).then((movies) => {
-        // throw new Error('Error');
+        if (!movies) {
+            return res.status(404).send('Movie not found');
+        }
         res.send(movies);
     }).catch((e) => {
         res.status(500).send(e);
