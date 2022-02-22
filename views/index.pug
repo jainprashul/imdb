@@ -1,0 +1,40 @@
+html 
+    head 
+        title
+            | Welcome to MOVIEDB
+        style 
+            include ./css/index.css
+    body
+        
+
+        include ./partials/nav.pug
+        h1#title Movie Collection DB
+
+        .search
+            form(method="GET", action="/search")
+                input#q(type="text", name="q", placeholder="Search for a movie")
+                input#s(type="submit", value="Search")
+
+        .movie-list
+            h1#title2 Top 10 Movies By Votes
+            ul.movies
+                each movie in movies
+                
+                    li.card
+                        div
+                            a#cardHeader(href='/movies/' + movie.id)
+                                = movie.name
+                            p#genre
+                                = movie.genre
+                            p#date
+                                = new Date(movie.releaseDate).getFullYear()
+                        div 
+                            img(src=movie.imgUrl, alt=movie.name, srcset="")
+                        
+                        
+
+                        
+        script 
+            include ./js/index.js
+
+

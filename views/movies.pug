@@ -1,0 +1,57 @@
+html 
+    head 
+        title
+            | Welcome to MOVIEDB
+        style 
+            include ./css/index.css
+    body
+        
+        h1#title Movie Collection DB
+
+        include ./partials/nav.pug
+
+        .movie-list
+            h1#title2 Movies 
+            ul.movies
+                each movie in movies
+                    li.card
+                        div
+                            a#cardHeader(href='/movies/' + movie.id)
+                                = movie.name
+                            p#genre
+                                = movie.genre
+                            p#date
+                                = new Date(movie.releaseDate).getFullYear()
+                        div 
+                            img(src=movie.imgUrl, alt=movie.name, srcset="")
+
+        if (movies.length === 0)
+            p#noMovies
+                | No movies found
+        
+        if (totalPages > 1) 
+            .pagination
+                
+                if (page > 1)
+                    a(href='/movies?page=1') |<<
+                    a(href='/movies?page=' + (page - 1))
+                        | Previous
+                - for (var i = Math.max(1, page - 2 ); i <= Math.min(totalPages, page + 2); i++) 
+                    a(href='/movies?page=' + i)
+                        | Page #{i}
+                
+                if (page < totalPages)
+                    a(href='/movies?page=' + (page + 1))
+                        | Next
+                    a(href='/movies?page=' + totalPages) >>|
+                
+                
+        
+                        
+                        
+
+                        
+        script 
+            include ./js/index.js
+
+

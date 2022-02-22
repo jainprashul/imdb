@@ -1,0 +1,23 @@
+html
+    head
+        title
+            | About - MOVIEDB
+        style
+            include ./css/index.css
+    body
+        h1#title About - MOVIEDB
+        include ./partials/nav.pug
+        .movie-list
+            h1#title2 About
+            p#desc Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem natus libero itaque reiciendis reprehenderit vero eum explicabo, hic impedit alias voluptatum repudiandae, veritatis sit rem aliquid porro aperiam neque aliquam.
+
+            p#desc Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo dolore ipsam beatae placeat consequuntur, error, provident cumque molestias vel odio omnis itaque cupiditate voluptatum nostrum quibusdam hic reiciendis, explicabo quis!
+
+            p#by 
+                | By:
+                a(href='https://jainprashul.now.sh') Prashul Jain
+            p#email
+                | Email:
+                a(href='mailto:jainprashul@gmail.com') jainprashul@gmail.com
+        script
+            include ./js/index.js

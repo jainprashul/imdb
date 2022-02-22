@@ -1,0 +1,63 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title = query - Search Results
+        style 
+            include ./css/index.css
+    body
+
+        include ./partials/nav.pug
+        
+        h1#title
+            = query 
+            |  - Search Results
+ 
+
+        .movie-list
+            h1#title2 Movies 
+            ul.movies
+                each movie in movies
+                    li.card
+                        div
+                            a#cardHeader(href='/movies/' + movie.id)
+                                = movie.name
+                            p#genre
+                                = movie.genre
+                            p#date
+                                = new Date(movie.releaseDate).getFullYear()
+                        div 
+                            img(src=movie.imgUrl, alt=movie.name, srcset="", width=150, height=150)
+
+        if (movies.length === 0)
+            p#noMovies
+                | No movies found
+        
+        if (totalPages > 1) 
+            .pagination
+                
+                if (page > 1)
+                    a(href='/movies?page=1') |<<
+                    a(href='/movies?page=' + (page - 1))
+                        | Previous
+                - for (var i = Math.max(1, page - 2 ); i <= Math.min(totalPages, page + 2); i++) 
+                    a(href='/movies?page=' + i)
+                        | Page #{i}
+                
+                if (page < totalPages)
+                    a(href='/movies?page=' + (page + 1))
+                        | Next
+                    a(href='/movies?page=' + totalPages) >>|
+                
+                
+        
+                        
+                        
+
+                        
+        script 
+            include ./js/index.js
+
+

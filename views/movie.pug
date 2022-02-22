@@ -1,0 +1,42 @@
+html 
+    head 
+        title
+            | Welcome to MOVIEDB 
+        style 
+            include ./css/index.css
+            include ./css/movie.css
+    body
+        
+        h1#title
+            = movie.name
+
+        include ./partials/nav.pug
+
+        .movie-details
+            h1#title2 Movie Details -
+                span 
+                    = movie.name
+            li.card
+                div
+                    img(src=movie.imgUrl, alt=movie.name, srcset="")
+                    div#description
+                div
+                    p#description 
+                        = movie.description
+                    p#genre
+                            = movie.genre
+                    p#date
+                             = new Date(movie.releaseDate).getFullYear()
+                
+        .goBack
+            a(href='/')
+                | Go Back
+    
+                        
+                        
+
+                        
+        script 
+            include ./js/index.js
+
+
