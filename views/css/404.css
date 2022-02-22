@@ -1,0 +1,16 @@
+#desc {
+    color: #fff;
+    font-size: 1.25em;
+    margin: 0 auto;
+    text-align: center;
+    padding: .5rem;
+}
+
+.goBack {
+    border-radius: 5px;
+    color: #2f2f2f;
+    display: block;
+    margin: 0 auto;
+    padding: .5rem;
+    text-align: center;
+}

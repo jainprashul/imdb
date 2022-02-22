@@ -69,5 +69,9 @@ router.post('/movies', (req, res) => {
     });
 });
 
+router.get('*', (req, res) => {
+    res.render('404');
+});
+
 module.exports = router;  
 
